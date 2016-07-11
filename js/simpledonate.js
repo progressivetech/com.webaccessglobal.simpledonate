@@ -224,7 +224,7 @@
     $scope.getCreditCardType = function (number) {
       var ccType;
       $.each(ccDefinitions, function (i, v) {
-        if (v.test(number)) {
+        if (v.test(parseInt(number))) {
           ccType = i;
           return false;
         }
@@ -441,7 +441,7 @@
           // We need to get the credit card field and the unmasked value of the field.
           scope.maskedVal = elm.val();
           scope.cardcomplete = true;
-          scope.formInfo.ccNumber = scope.cardNumberValue = scope.formInfo.cardNumberValue = uvalue = elm.inputmask("unmaskedvalue");
+          scope.formInfo.ccNumber = scope.cardNumberValue = scope.formInfo.cardNumberValue = uvalue = elm.inputmask("unmaskedvalue").trim();
           ccType = scope.getCreditCardType(uvalue);
           // Let's make sure the card is valid
           if (ccType === undefined) {
