@@ -46,7 +46,7 @@ Controller: SimpleDonationCtrl
                        id="donate-amount-{{hprice.name}}" data-parsley-multiple="donate-amount"
                        ng-checked="{{hprice.is_default}}" value="{{hprice.amount}}"/>
                 <label for="donate-amount-{{hprice.name}}" ng-mouseenter="hamountEnter(hprice.amount)"
-                       ng-mouseleave="hamountLeave(hprice.amount)" checkbx-label>{{currencySymbol}}{{hprice.amount}}</label>
+                       ng-mouseleave="hamountLeave(hprice.amount)" checkbx-label>{{currencySymbol}}{{hprice.amount | number}}</label>
               </span>
               <span class="pull-left" ng-if="hk==='Radio'">
                 <input ng-model="formInfo.radioDonateAmount" name="donate-amount-{{hprice.name}}" type="{{hk}}"
@@ -54,7 +54,7 @@ Controller: SimpleDonationCtrl
                        ng-checked="{{hprice.is_default}}" value="{{hprice.amount}}" radio-icon/>
                 <label for="donate-amount-{{hprice.name}}" ng-mouseenter="hamountEnter(hprice.amount,'radio')"
                        ng-mouseleave="hamountLeave(hprice.amount,'radio')"
-                       ng-click="hamountClick(hprice.amount,'radio')" hradio-label>{{currencySymbol}}{{hprice.amount}}</label>
+                       ng-click="hamountClick(hprice.amount,'radio')" hradio-label>{{currencySymbol}}{{hprice.amount | number}}</label>
               </span>
               <span class="pull-left other-amount" ng-if="hk==='Text'">
                 <span class="currency-input-addon">{{currencySymbol}}</span>
